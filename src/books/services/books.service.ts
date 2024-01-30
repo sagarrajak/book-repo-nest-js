@@ -21,7 +21,7 @@ export class BooksService {
         startDate,
         title,
       } = dto;
-      // build query
+
       const repository = await this.dataSource.getRepository(BookEntity);
       const queryBuilder = repository.createQueryBuilder('books');
       if (author) {
@@ -55,7 +55,7 @@ export class BooksService {
         .skip((page - 1) * size)
         .take(size)
         .getManyAndCount();
-      // console.log({result, total})
+
       return { result, total };
     } catch (err) {
       throw new CustumHttpError(

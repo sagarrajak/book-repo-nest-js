@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksService } from './books/services/books.service';
 import { BooksController } from './books/controllers/books.controller';
 import { BookEntity } from './books/entities/books.enity';
-import { dataSourceObject } from 'datasource';
+import { dataSourceObject } from '../datasource';
 
 @Module({
   imports: [

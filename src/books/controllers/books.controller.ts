@@ -11,7 +11,6 @@ export class BooksController {
   async findAll(
     @Query() dto: SearchCriteriaDto,
   ) {
-    console.log("coming here 2");
     const data = await this.booksService.getBooks(dto);
     return data;
   }
