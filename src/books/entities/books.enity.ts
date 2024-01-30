@@ -1,6 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'books'})
+@Index(['author', 'genre', 'publishedDate'])
+@Index(['author'])
+@Index(['genre'])
+@Index(['publishedDate'])
+@Index(['author', 'genre'])
+@Index(['genre', 'publishedDate'])
 export class BookEntity {
   @PrimaryGeneratedColumn()
   id: number;

@@ -4,21 +4,13 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksService } from './books/services/books.service';
 import { BooksController } from './books/controllers/books.controller';
-import { BookEntity } from './books/entitys/books.enity';
+import { BookEntity } from './books/entities/books.enity';
+import { dataSourceObject } from 'datasource';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'sagar',
-      password: 'sagar123',
-      database: 'booksdb',
-      entities: [
-        BookEntity
-      ],
-      synchronize: true,
+      ...dataSourceObject
     }),
   ],
   controllers: [AppController, BooksController],
